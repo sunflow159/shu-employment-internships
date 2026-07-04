@@ -46,26 +46,6 @@
    - 输出 `金融与应用统计实习岗位汇总.md`。
    - 对无法从图片或二维码中完整识别的信息，在文档中明确标注“原文未识别”或“需打开原文人工核对”。
 
-## 使用方式
-
-如果需要更新文章链接：
-
-```bash
-python crawl_html.py
-```
-
-如果需要全量重爬：
-
-```bash
-python crawl_html.py --mode full
-```
-
-如果需要重新提取正文和 OCR：
-
-```bash
-python extract_article_text.py --ocr-mode none
-python extract_article_text.py --ocr-mode all --only-indexes 18,32,38,41,49,55,58,61
-```
 
 ## 注意事项
 
@@ -121,26 +101,6 @@ Main columns in `data.csv`:
    - The final output is `金融与应用统计实习岗位汇总.md`.
    - Missing or partially recognized information is explicitly marked for manual verification.
 
-## Usage
-
-Incrementally update article links:
-
-```bash
-python crawl_html.py
-```
-
-Run a full crawl:
-
-```bash
-python crawl_html.py --mode full
-```
-
-Re-extract article text and run targeted OCR:
-
-```bash
-python extract_article_text.py --ocr-mode none
-python extract_article_text.py --ocr-mode all --only-indexes 18,32,38,41,49,55,58,61
-```
 
 ## Notes
 
