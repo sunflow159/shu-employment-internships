@@ -21,6 +21,12 @@
 | `link` | 原始公众号文章链接 |
 | `create_time` | 文章发布时间 |
 
+## 最新状态
+
+- 当前本地 `data.csv` 共 65 篇文章，最新一篇发布时间为 `2026-07-03 11:37`。
+- 2026-07-06 执行默认增量抓取时，微信公众号接口返回 `invalid session`，因此未写入新数据，旧的 `data.csv` 和 `content_list.json` 已保留。
+- 2026-07-01 至 2026-07-03 的 9 篇最新文章中，未发现新增明确属于金融、应用统计、数据分析或金融科技方向的重点实习岗位。
+
 ## 技术路线
 
 1. **文章链接抓取**
@@ -46,6 +52,28 @@
    - 输出 `金融与应用统计实习岗位汇总.md`。
    - 对无法从图片或二维码中完整识别的信息，在文档中明确标注“原文未识别”或“需打开原文人工核对”。
 
+## 使用方式
+
+如果需要更新文章链接：
+
+```bash
+python crawl_html.py
+```
+
+若返回 `invalid session`，需要先在 `crawl_html.py` 中刷新微信 `Cookie`/`token` 后再重试；在接口失效时请保留旧数据，不要覆盖本地结果。
+
+如果需要全量重爬：
+
+```bash
+python crawl_html.py --mode full
+```
+
+如果需要重新提取正文和 OCR：
+
+```bash
+python extract_article_text.py --ocr-mode none
+python extract_article_text.py --ocr-mode all --only-indexes 18,32,38,41,49,55,58,61
+```
 
 ## 注意事项
 
@@ -101,6 +129,32 @@ Main columns in `data.csv`:
    - The final output is `金融与应用统计实习岗位汇总.md`.
    - Missing or partially recognized information is explicitly marked for manual verification.
 
+## Usage
+
+Incrementally update article links:
+
+```bash
+python crawl_html.py
+```
+
+Run a full crawl:
+
+```bash
+python crawl_html.py --mode full
+```
+
+Re-extract article text and run targeted OCR:
+
+```bash
+python extract_article_text.py --ocr-mode none
+python extract_article_text.py --ocr-mode all --only-indexes 18,32,38,41,49,55,58,61
+```
+
+Latest local status:
+
+- `data.csv` currently contains 65 articles; the newest local article is dated `2026-07-03 11:37`.
+- The incremental run on 2026-07-06 failed with WeChat `invalid session`, so the existing local files were kept unchanged.
+- Among the 9 most recent articles dated 2026-07-01 to 2026-07-03, no new clearly relevant finance/applied statistics/data internships were identified.
 
 ## Notes
 
