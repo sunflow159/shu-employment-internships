@@ -24,7 +24,8 @@
 ## 最新状态
 
 - 当前本地 `data.csv` 共 65 篇文章，最新一篇发布时间为 `2026-07-03 11:37`。
-- 2026-07-06 执行默认增量抓取时，微信公众号接口返回 `invalid session`，因此未写入新数据，旧的 `data.csv` 和 `content_list.json` 已保留。
+- 2026-07-07 执行默认增量抓取时，微信公众号接口仍返回 `invalid session`，因此未写入新数据，旧的 `data.csv` 和 `content_list.json` 已保留。
+- 已于 2026-07-07 基于本地缓存的 65 份 HTML 重建 `article_extracts/articles_text.json`，避免正文索引缺失。
 - 2026-07-01 至 2026-07-03 的 9 篇最新文章中，未发现新增明确属于金融、应用统计、数据分析或金融科技方向的重点实习岗位。
 
 ## 技术路线
@@ -153,7 +154,8 @@ python extract_article_text.py --ocr-mode all --only-indexes 18,32,38,41,49,55,5
 Latest local status:
 
 - `data.csv` currently contains 65 articles; the newest local article is dated `2026-07-03 11:37`.
-- The incremental run on 2026-07-06 failed with WeChat `invalid session`, so the existing local files were kept unchanged.
+- The incremental run on 2026-07-07 still failed with WeChat `invalid session`, so the existing local files were kept unchanged.
+- `article_extracts/articles_text.json` was rebuilt on 2026-07-07 from 65 cached HTML files to restore a complete local text index.
 - Among the 9 most recent articles dated 2026-07-01 to 2026-07-03, no new clearly relevant finance/applied statistics/data internships were identified.
 
 ## Notes
