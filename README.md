@@ -24,8 +24,8 @@
 ## 最新状态
 
 - 当前本地 `data.csv` 共 65 篇文章，最新一篇发布时间为 `2026-07-03 11:37`。
-- 2026-07-11 再次执行默认增量抓取时，微信接口仍明确返回 `base_resp.ret=200003` / `invalid session`，说明当前 `crawl_html.py` 内的 `Cookie`/`token` 仍已失效；旧的 `data.csv` 和 `content_list.json` 已保留，未被覆盖。
-- 已于 2026-07-11 基于本地缓存重新执行 `extract_article_text.py --ocr-mode none` 与既有候选海报文章的定向 OCR；`article_extracts/articles_text.json` 维持 65 篇正文，当前有 8 篇文章保留 OCR 文本。
+- 2026-07-18 再次执行默认增量抓取时，微信接口仍明确返回 `base_resp.ret=200003` / `invalid session`，说明当前 `crawl_html.py` 内的 `Cookie`/`token` 仍已失效；旧的 `data.csv` 和 `content_list.json` 已保留，未被覆盖。
+- 已于 2026-07-18 基于本地缓存重新执行 `extract_article_text.py --ocr-mode none` 与既有候选海报文章的定向 OCR；`article_extracts/articles_text.json` 维持 65 篇正文，当前有 8 篇文章保留 OCR 文本。
 - 2026-07-01 至 2026-07-03 的 9 篇最新文章中，未发现新增明确属于金融、应用统计、数据分析或金融科技方向的重点实习岗位。
 
 ## 技术路线
@@ -154,8 +154,8 @@ python extract_article_text.py --ocr-mode all --only-indexes 18,32,38,41,49,55,5
 Latest local status:
 
 - `data.csv` currently contains 65 articles; the newest local article is dated `2026-07-03 11:37`.
-- The incremental run on 2026-07-11 again reached the WeChat API and got `base_resp.ret=200003` / `invalid session`, which confirms the `Cookie`/`token` in `crawl_html.py` is still expired; the existing local files were kept unchanged.
-- On 2026-07-11, `extract_article_text.py --ocr-mode none` and the targeted OCR pass were rerun from the 65 cached HTML files; `article_extracts/articles_text.json` still contains 65 extracted articles, and 8 articles currently retain OCR text.
+- The incremental run on 2026-07-18 again reached the WeChat API and got `base_resp.ret=200003` / `invalid session`, which confirms the `Cookie`/`token` in `crawl_html.py` is still expired; the existing local files were kept unchanged.
+- On 2026-07-18, `extract_article_text.py --ocr-mode none` and the targeted OCR pass were rerun from the 65 cached HTML files; `article_extracts/articles_text.json` still contains 65 extracted articles, and 8 articles currently retain OCR text.
 - Among the 9 most recent articles dated 2026-07-01 to 2026-07-03, no new clearly relevant finance/applied statistics/data internships were identified.
 
 ## Notes
